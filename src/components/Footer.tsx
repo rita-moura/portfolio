@@ -20,7 +20,7 @@ export const Footer: React.FC = () => {
               <Github size={20} />
             </a>
             <a 
-              href="https://linkedin.com/in/username"
+              href="https://www.linkedin.com/in/rita-moura-dev/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-slate hover:text-highlight transition-colors"
@@ -29,16 +29,7 @@ export const Footer: React.FC = () => {
               <Linkedin size={20} />
             </a>
             <a 
-              href="https://twitter.com/username"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-slate hover:text-highlight transition-colors"
-              aria-label="Twitter"
-            >
-              <Twitter size={20} />
-            </a>
-            <a 
-              href="mailto:email@example.com"
+              href="mailto:ritamoura520@gmail.com"
               className="text-slate hover:text-highlight transition-colors"
               aria-label="Email"
             >

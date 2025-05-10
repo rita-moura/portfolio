@@ -40,7 +40,7 @@ export const Skills: React.FC = () => {
     <section id="skills" className="py-24 bg-navy-light">
       <div className="container max-w-4xl">
         <h2 className="section-heading">
-          <span className="text-highlight font-mono text-lg mr-2">02.</span> Tecnologias
+          <span className="text-highlight font-mono text-lg mr-2">Tecnologias</span>
         </h2>
         
         <div className="grid md:grid-cols-2 gap-10">

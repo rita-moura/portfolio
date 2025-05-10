@@ -21,7 +21,7 @@ export const Projects: React.FC = () => {
     <section id="projects" className="py-24">
       <div className="container max-w-5xl">
         <h2 className="section-heading">
-          <span className="text-highlight font-mono text-lg mr-2">03.</span> Projetos
+          <span className="text-highlight font-mono text-lg mr-2">Projetos</span> 
         </h2>
         
         {isLoading ? (

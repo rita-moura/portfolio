@@ -9,6 +9,8 @@ interface FeaturedProjectsProps {
 
 export const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ projects }) => {
   if (projects.length === 0) return null;
+  console.log("FeaturedProjects $$$$", projects);
+  
 
   return (
     <div className="space-y-24 mb-24">

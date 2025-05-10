@@ -41,7 +41,7 @@ export const Header: React.FC = () => {
     >
       <div className="container flex justify-between items-center">
         <a href="#" className="text-highlight font-mono text-xl font-semibold">
-          {'<Dev />'}
+          {'<DEV BACKEND/>'}
         </a>
 
         {/* Desktop Navigation */}
@@ -53,20 +53,9 @@ export const Header: React.FC = () => {
                 href={item.href}
                 className="text-slate hover:text-highlight transition-colors font-medium"
               >
-                <span className="text-highlight font-mono mr-1">{`0${index + 1}.`}</span>
                 {item.name}
               </a>
             ))}
-            <a 
-              href="/resume.pdf" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="ml-4"
-            >
-              <Button variant="outline" className="border-highlight text-highlight hover:bg-highlight/10">
-                Currículo
-              </Button>
-            </a>
           </nav>
         )}
 
@@ -89,15 +78,14 @@ export const Header: React.FC = () => {
             }`}
           >
             <div className="flex flex-col items-center gap-8">
-              {navItems.map((item, index) => (
+              {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
                   className="text-slate hover:text-highlight transition-colors font-medium text-lg"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  <span className="text-highlight font-mono mr-1 block text-sm text-center mb-1">{`0${index + 1}.`}</span>
-                  {item.name}
+                  <span className="text-highlight font-mono mr-1 block text-sm text-center mb-1">{item.name}</span>
                 </a>
               ))}
               <a 
