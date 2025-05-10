@@ -8,7 +8,7 @@ export const useGitHubProjects = (repos: GitHubRepo[] | undefined, username: str
     
     return repos
       .filter(repo => !repo.fork && repo.description) // Filtrar forks e repos sem descrição
-      .slice(0, 10) // Limitar a 10 projetos
+      .slice(0, 20) // Aumentado para 20 projetos (antes era 10)
       .map(repo => ({
         id: repo.id,
         title: repo.name.replace(/-/g, ' ').replace(/_/g, ' '),
