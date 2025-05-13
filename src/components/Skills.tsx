@@ -4,6 +4,7 @@ import { useGitHubRepos } from "@/hooks/useGitHubData";
 import useGitHubProjects from "@/hooks/useGitHubProjects";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
+import { Github } from "lucide-react";
 
 interface Skill {
   name: string;
@@ -100,16 +101,26 @@ export const Skills: React.FC = () => {
                       {!isLoading && relatedProjects.length > 0 && (
                         <div className="flex flex-wrap gap-2 mt-2">
                           {relatedProjects.map(project => (
-                            <Link 
-                              key={project.id}
-                              to="/#projects"
-                              onClick={(e) => {
-                                document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
-                              }}
-                              className="text-sm text-slate hover:text-highlight transition-colors bg-navy-light px-2 py-1 rounded-md"
-                            >
-                              {project.title}
-                            </Link>
+                            <div key={project.id} className="flex items-center bg-navy-light px-2 py-1 rounded-md">
+                              <Link 
+                                to="/#projects"
+                                onClick={(e) => {
+                                  document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+                                }}
+                                className="text-sm text-slate hover:text-highlight transition-colors mr-1"
+                              >
+                                {project.title}
+                              </Link>
+                              <a 
+                                href={project.githubUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-slate hover:text-highlight transition-colors"
+                                aria-label={`Ver ${project.title} no GitHub`}
+                              >
+                                <Github size={14} />
+                              </a>
+                            </div>
                           ))}
                         </div>
                       )}
