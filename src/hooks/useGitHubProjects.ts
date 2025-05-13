@@ -7,19 +7,17 @@ export const useGitHubProjects = (repos: GitHubRepo[] | undefined, username: str
     if (!repos) return [];
     
     return repos
-      .filter(repo => !repo.fork && repo.description) // Filtrar forks e repos sem descrição
-      .slice(0, 20) // Aumentado para 20 projetos (antes era 10)
+      .filter(repo => !repo.fork) // Mostrar todos os repositórios não fork, mesmo sem descrição
       .map(repo => ({
         id: repo.id,
         title: repo.name.replace(/-/g, ' ').replace(/_/g, ' '),
-        description: repo.description || "Sem descrição disponível",
+        description: repo.description || "Repositório sem descrição",
         technologies: repo.topics.length > 0 ? repo.topics : [repo.language].filter(Boolean) as string[],
         githubUrl: repo.html_url,
         demoUrl: repo.homepage,
         featured: Boolean(repo.stargazers_count > 0 || repo.homepage),
-        // Não temos imagens do GitHub, então deixamos indefinido para os não destacados
-        image: repo.stargazers_count > 0 ? 
-          `https://opengraph.githubassets.com/1/${username}/${repo.name}` : undefined
+        // Usar imagem do OpenGraph do GitHub para todos os projetos
+        image: `https://opengraph.githubassets.com/1/${username}/${repo.name}`
       }));
   }, [repos, username]);
 

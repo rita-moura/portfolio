@@ -14,10 +14,6 @@ interface OtherProjectsProps {
 export const OtherProjects: React.FC<OtherProjectsProps> = ({ projects, hasFeatured, githubUsername }) => {
   return (
     <div>
-      <h3 className="text-center text-2xl font-heading text-slate-light mb-12">
-        {hasFeatured ? "Outros Projetos" : "Meus Projetos"}
-      </h3>
-      
       <div className="grid md:grid-cols-3 gap-5">
         {projects.length > 0 ? projects.map(project => (
           <ProjectCard key={project.id} project={project} />
@@ -35,11 +31,11 @@ export const OtherProjects: React.FC<OtherProjectsProps> = ({ projects, hasFeatu
           className="border-highlight text-highlight hover:bg-highlight/10"
         >
           <a 
-            href={`https://github.com/${githubUsername}`} 
+            href={`https://github.com/${githubUsername}?tab=repositories`} 
             target="_blank" 
             rel="noopener noreferrer"
           >
-            Ver mais no GitHub <Github size={16} className="ml-2" />
+            Ver todos no GitHub <Github size={16} className="ml-2" />
           </a>
         </Button>
       </div>
