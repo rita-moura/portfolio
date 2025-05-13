@@ -1,29 +1,35 @@
 
 import React from "react";
+import { useGitHubRepos } from "@/hooks/useGitHubData";
+import useGitHubProjects from "@/hooks/useGitHubProjects";
+import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
 
 interface Skill {
   name: string;
-  level: number;
   category: string;
 }
 
+// Nome de usuário do GitHub
+const GITHUB_USERNAME = "rita-moura";
+
 const skills: Skill[] = [
-  { name: "Java", level: 90, category: "Linguagens" },
-  { name: "Python", level: 85, category: "Linguagens" },
-  { name: "Node.js", level: 80, category: "Linguagens" },
-  { name: "Golang", level: 70, category: "Linguagens" },
-  { name: "PostgreSQL", level: 85, category: "Banco de Dados" },
-  { name: "MongoDB", level: 80, category: "Banco de Dados" },
-  { name: "Redis", level: 75, category: "Banco de Dados" },
-  { name: "Docker", level: 85, category: "DevOps" },
-  { name: "Kubernetes", level: 75, category: "DevOps" },
-  { name: "CI/CD", level: 80, category: "DevOps" },
-  { name: "REST APIs", level: 90, category: "Arquitetura" },
-  { name: "GraphQL", level: 75, category: "Arquitetura" },
-  { name: "Microsserviços", level: 85, category: "Arquitetura" },
-  { name: "AWS", level: 80, category: "Cloud" },
-  { name: "Google Cloud", level: 75, category: "Cloud" },
-  { name: "Azure", level: 70, category: "Cloud" },
+  { name: "Java", category: "Linguagens" },
+  { name: "Python", category: "Linguagens" },
+  { name: "Node.js", category: "Linguagens" },
+  { name: "Golang", category: "Linguagens" },
+  { name: "PostgreSQL", category: "Banco de Dados" },
+  { name: "MongoDB", category: "Banco de Dados" },
+  { name: "Redis", category: "Banco de Dados" },
+  { name: "Docker", category: "DevOps" },
+  { name: "Kubernetes", category: "DevOps" },
+  { name: "CI/CD", category: "DevOps" },
+  { name: "REST APIs", category: "Arquitetura" },
+  { name: "GraphQL", category: "Arquitetura" },
+  { name: "Microsserviços", category: "Arquitetura" },
+  { name: "AWS", category: "Cloud" },
+  { name: "Google Cloud", category: "Cloud" },
+  { name: "Azure", category: "Cloud" },
 ];
 
 // Agrupar habilidades por categoria
@@ -36,6 +42,35 @@ const categorizedSkills = skills.reduce((acc, skill) => {
 }, {} as Record<string, Skill[]>);
 
 export const Skills: React.FC = () => {
+  // Buscar repositórios do GitHub
+  const { data: repos, isLoading } = useGitHubRepos(GITHUB_USERNAME);
+  
+  // Usar o hook personalizado para processar os projetos
+  const { projects } = useGitHubProjects(repos, GITHUB_USERNAME);
+  
+  // Função para encontrar projetos que usam uma determinada tecnologia
+  const findProjectsByTechnology = (techName: string) => {
+    // Normalizar o nome da tecnologia para comparação
+    const normalizedTechName = techName.toLowerCase();
+    
+    // Buscar projetos que contêm esta tecnologia
+    return projects.filter(project => {
+      const technologies = project.technologies.map(tech => tech.toLowerCase());
+      
+      // Verificar tecnologias exatas
+      if (technologies.includes(normalizedTechName)) {
+        return true;
+      }
+      
+      // Verificar se há tecnologias que contenham essa palavra
+      // Por exemplo, "Node" corresponderia a "Node.js"
+      return technologies.some(tech => 
+        tech.includes(normalizedTechName) || 
+        normalizedTechName.includes(tech)
+      );
+    });
+  };
+
   return (
     <section id="skills" className="py-24 bg-navy-light">
       <div className="container max-w-4xl">
@@ -50,20 +85,45 @@ export const Skills: React.FC = () => {
                 {category}
               </h3>
               <div className="space-y-4">
-                {categorySkills.map((skill) => (
-                  <div key={skill.name} className="space-y-2">
-                    <div className="flex justify-between items-center">
-                      <span className="text-slate-light">{skill.name}</span>
-                      <span className="text-highlight font-mono text-sm">{skill.level}%</span>
+                {categorySkills.map((skill) => {
+                  const relatedProjects = !isLoading ? findProjectsByTechnology(skill.name) : [];
+                  
+                  return (
+                    <div key={skill.name} className="space-y-2 bg-navy p-4 rounded-lg">
+                      <div className="flex justify-between items-start">
+                        <span className="text-slate-light font-medium">{skill.name}</span>
+                        <Badge variant="outline" className="text-highlight border-highlight">
+                          {isLoading ? '...' : `${relatedProjects.length} projetos`}
+                        </Badge>
+                      </div>
+                      
+                      {!isLoading && relatedProjects.length > 0 && (
+                        <div className="flex flex-wrap gap-2 mt-2">
+                          {relatedProjects.slice(0, 3).map(project => (
+                            <Link 
+                              key={project.id}
+                              to="/#projects"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+                              }}
+                              className="text-sm text-slate hover:text-highlight transition-colors"
+                            >
+                              {project.title}
+                            </Link>
+                          ))}
+                          {relatedProjects.length > 3 && (
+                            <span className="text-sm text-slate">+{relatedProjects.length - 3} mais</span>
+                          )}
+                        </div>
+                      )}
+                      
+                      {!isLoading && relatedProjects.length === 0 && (
+                        <p className="text-sm text-slate">Nenhum projeto encontrado</p>
+                      )}
                     </div>
-                    <div className="h-2 w-full bg-navy rounded-full overflow-hidden">
-                      <div 
-                        className="h-full bg-highlight rounded-full"
-                        style={{ width: `${skill.level}%` }}
-                      ></div>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           ))}
