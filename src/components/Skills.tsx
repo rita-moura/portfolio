@@ -93,28 +93,24 @@ export const Skills: React.FC = () => {
                       <div className="flex justify-between items-start">
                         <span className="text-slate-light font-medium">{skill.name}</span>
                         <Badge variant="outline" className="text-highlight border-highlight">
-                          {isLoading ? '...' : `${relatedProjects.length} projetos`}
+                          {isLoading ? '...' : `${relatedProjects.length} ${relatedProjects.length === 1 ? 'projeto' : 'projetos'}`}
                         </Badge>
                       </div>
                       
                       {!isLoading && relatedProjects.length > 0 && (
                         <div className="flex flex-wrap gap-2 mt-2">
-                          {relatedProjects.slice(0, 3).map(project => (
+                          {relatedProjects.map(project => (
                             <Link 
                               key={project.id}
                               to="/#projects"
                               onClick={(e) => {
-                                e.preventDefault();
                                 document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
                               }}
-                              className="text-sm text-slate hover:text-highlight transition-colors"
+                              className="text-sm text-slate hover:text-highlight transition-colors bg-navy-light px-2 py-1 rounded-md"
                             >
                               {project.title}
                             </Link>
                           ))}
-                          {relatedProjects.length > 3 && (
-                            <span className="text-sm text-slate">+{relatedProjects.length - 3} mais</span>
-                          )}
                         </div>
                       )}
                       

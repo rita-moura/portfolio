@@ -15,25 +15,13 @@ export const useGitHubProjects = (repos: GitHubRepo[] | undefined, username: str
         technologies: repo.topics.length > 0 ? repo.topics : [repo.language].filter(Boolean) as string[],
         githubUrl: repo.html_url,
         demoUrl: repo.homepage,
-        featured: Boolean(repo.stargazers_count > 0 || repo.homepage),
+        featured: false, // Não usamos mais esse campo, mas mantemos para compatibilidade
         // Usar imagem do OpenGraph do GitHub para todos os projetos
         image: `https://opengraph.githubassets.com/1/${username}/${repo.name}`
       }));
   }, [repos, username]);
 
-  const featuredProjects = useMemo(() => {
-    return projects.filter(project => project.featured);
-  }, [projects]);
-
-  const otherProjects = useMemo(() => {
-    return projects.filter(project => !project.featured);
-  }, [projects]);
-
-  return {
-    projects,
-    featuredProjects,
-    otherProjects
-  };
+  return { projects };
 };
 
 export default useGitHubProjects;

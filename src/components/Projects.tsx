@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { useGitHubRepos } from "@/hooks/useGitHubData";
 import useGitHubProjects from "@/hooks/useGitHubProjects";
-import FeaturedProjects from "./projects/FeaturedProjects";
 import OtherProjects from "./projects/OtherProjects";
 import ProjectsLoading from "./projects/ProjectsLoading";
 import ProjectsError from "./projects/ProjectsError";
@@ -27,13 +26,13 @@ export const Projects: React.FC = () => {
   const { data: repos, isLoading, error } = useGitHubRepos(GITHUB_USERNAME);
   
   // Usar o hook personalizado para processar os projetos
-  const { featuredProjects, otherProjects } = useGitHubProjects(repos, GITHUB_USERNAME);
+  const { projects } = useGitHubProjects(repos, GITHUB_USERNAME);
 
   // Calcular total de páginas
-  const totalPages = Math.ceil(otherProjects.length / PROJECTS_PER_PAGE);
+  const totalPages = Math.ceil(projects.length / PROJECTS_PER_PAGE);
   
   // Calcular projetos para a página atual
-  const currentProjects = otherProjects.slice(
+  const currentProjects = projects.slice(
     (currentPage - 1) * PROJECTS_PER_PAGE,
     currentPage * PROJECTS_PER_PAGE
   );
@@ -81,60 +80,49 @@ export const Projects: React.FC = () => {
           <ProjectsError />
         ) : (
           <>
-            {featuredProjects.length > 0 && (
-              <>
-                <h3 className="text-center text-2xl font-heading text-slate-light mb-12">
-                  Projetos em Destaque
-                </h3>
-                <FeaturedProjects projects={featuredProjects} />
-              </>
-            )}
+            <h3 className="text-center text-2xl font-heading text-slate-light mb-12">
+              Todos os Projetos
+            </h3>
             
-            <div className="mt-20">
-              <h3 className="text-center text-2xl font-heading text-slate-light mb-12">
-                Todos os Projetos
-              </h3>
-              
-              <OtherProjects 
-                projects={currentProjects} 
-                hasFeatured={featuredProjects.length > 0}
-                githubUsername={GITHUB_USERNAME} 
-              />
-              
-              {totalPages > 1 && (
-                <div className="mt-10">
-                  <Pagination>
-                    <PaginationContent>
-                      {currentPage > 1 && (
-                        <PaginationItem>
-                          <PaginationPrevious 
-                            href="#" 
-                            onClick={(e) => {
-                              e.preventDefault();
-                              handlePageChange(currentPage - 1);
-                            }} 
-                          />
-                        </PaginationItem>
-                      )}
-                      
-                      {renderPaginationItems()}
-                      
-                      {currentPage < totalPages && (
-                        <PaginationItem>
-                          <PaginationNext 
-                            href="#" 
-                            onClick={(e) => {
-                              e.preventDefault();
-                              handlePageChange(currentPage + 1);
-                            }} 
-                          />
-                        </PaginationItem>
-                      )}
-                    </PaginationContent>
-                  </Pagination>
-                </div>
-              )}
-            </div>
+            <OtherProjects 
+              projects={currentProjects}
+              hasFeatured={false}
+              githubUsername={GITHUB_USERNAME} 
+            />
+            
+            {totalPages > 1 && (
+              <div className="mt-10">
+                <Pagination>
+                  <PaginationContent>
+                    {currentPage > 1 && (
+                      <PaginationItem>
+                        <PaginationPrevious 
+                          href="#" 
+                          onClick={(e) => {
+                            e.preventDefault();
+                            handlePageChange(currentPage - 1);
+                          }} 
+                        />
+                      </PaginationItem>
+                    )}
+                    
+                    {renderPaginationItems()}
+                    
+                    {currentPage < totalPages && (
+                      <PaginationItem>
+                        <PaginationNext 
+                          href="#" 
+                          onClick={(e) => {
+                            e.preventDefault();
+                            handlePageChange(currentPage + 1);
+                          }} 
+                        />
+                      </PaginationItem>
+                    )}
+                  </PaginationContent>
+                </Pagination>
+              </div>
+            )}
           </>
         )}
       </div>

@@ -7,10 +7,9 @@ interface FeaturedProjectsProps {
   projects: Project[];
 }
 
+// Este componente não está mais sendo usado, mas mantemos para referência
 export const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ projects }) => {
-  if (projects.length === 0) return null;
-  console.log("FeaturedProjects $$$$", projects);
-  
+  if (projects.length === 0) return null;  
 
   return (
     <div className="space-y-24 mb-24">

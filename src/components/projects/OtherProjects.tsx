@@ -11,7 +11,7 @@ interface OtherProjectsProps {
   githubUsername: string;
 }
 
-export const OtherProjects: React.FC<OtherProjectsProps> = ({ projects, hasFeatured, githubUsername }) => {
+export const OtherProjects: React.FC<OtherProjectsProps> = ({ projects, githubUsername }) => {
   return (
     <div>
       <div className="grid md:grid-cols-3 gap-5">
@@ -19,7 +19,7 @@ export const OtherProjects: React.FC<OtherProjectsProps> = ({ projects, hasFeatu
           <ProjectCard key={project.id} project={project} />
         )) : (
           <div className="col-span-3 text-center p-8">
-            <p className="text-slate">Nenhum projeto adicional encontrado.</p>
+            <p className="text-slate">Nenhum projeto encontrado.</p>
           </div>
         )}
       </div>
