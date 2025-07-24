@@ -80,60 +80,72 @@ export const Skills: React.FC = () => {
         </h2>
         
         <div className="grid md:grid-cols-2 gap-10">
-          {Object.entries(categorizedSkills).map(([category, categorySkills]) => (
-            <div key={category} className="space-y-6">
-              <h3 className="text-slate-light font-heading font-medium text-xl mb-4">
-                {category}
-              </h3>
-              <div className="space-y-4">
-                {categorySkills.map((skill) => {
-                  const relatedProjects = !isLoading ? findProjectsByTechnology(skill.name) : [];
-                  
-                  return (
-                    <div key={skill.name} className="space-y-2 bg-navy p-4 rounded-lg">
-                      <div className="flex justify-between items-start">
-                        <span className="text-slate-light font-medium">{skill.name}</span>
-                        <Badge variant="outline" className="text-highlight border-highlight">
-                          {isLoading ? '...' : `${relatedProjects.length} ${relatedProjects.length === 1 ? 'projeto' : 'projetos'}`}
-                        </Badge>
-                      </div>
-                      
-                      {!isLoading && relatedProjects.length > 0 && (
-                        <div className="flex flex-wrap gap-2 mt-2">
-                          {relatedProjects.slice(0, 1).map(project => (
-                            <div key={project.id} className="flex items-center bg-navy-light px-2 py-1 rounded-md">
-                              <Link 
-                                to="/#projects"
-                                onClick={(e) => {
-                                  document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
-                                }}
-                                className="text-sm text-slate hover:text-highlight transition-colors mr-1"
-                              >
-                                {project.title}
-                              </Link>
-                              <a 
-                                href={project.githubUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-slate hover:text-highlight transition-colors"
-                                aria-label={`Ver ${project.title} no GitHub`}
-                              >
-                                <Github size={14} />
-                              </a>
-                            </div>
-                          ))}
+          {Object.entries(categorizedSkills).map(([category, categorySkills]) => {
+            // Filtrar apenas habilidades que têm projetos relacionados
+            const skillsWithProjects = !isLoading ? categorySkills.filter(skill => 
+              findProjectsByTechnology(skill.name).length > 0
+            ) : categorySkills;
+            
+            // Só mostrar a categoria se tiver pelo menos uma habilidade com projetos
+            if (!isLoading && skillsWithProjects.length === 0) {
+              return null;
+            }
+            
+            return (
+              <div key={category} className="space-y-6">
+                <h3 className="text-slate-light font-heading font-medium text-xl mb-4">
+                  {category}
+                </h3>
+                <div className="space-y-4">
+                  {skillsWithProjects.map((skill) => {
+                    const relatedProjects = !isLoading ? findProjectsByTechnology(skill.name) : [];
+                    
+                    return (
+                      <div key={skill.name} className="space-y-2 bg-navy p-4 rounded-lg">
+                        <div className="flex justify-between items-start">
+                          <span className="text-slate-light font-medium">{skill.name}</span>
+                          <Badge variant="outline" className="text-highlight border-highlight">
+                            {isLoading ? '...' : `${relatedProjects.length} ${relatedProjects.length === 1 ? 'projeto' : 'projetos'}`}
+                          </Badge>
                         </div>
-                      )}
-                      
-                      {!isLoading && relatedProjects.length === 0 && (
-                        <p className="text-sm text-slate">Nenhum projeto encontrado</p>
-                      )}
-                    </div>
-                  );
-                })}
+                        
+                        {!isLoading && relatedProjects.length > 0 && (
+                          <div className="flex flex-wrap gap-2 mt-2">
+                            {relatedProjects.slice(0, 1).map(project => (
+                              <div key={project.id} className="flex items-center bg-navy-light px-2 py-1 rounded-md">
+                                <Link 
+                                  to="/#projects"
+                                  onClick={(e) => {
+                                    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+                                  }}
+                                  className="text-sm text-slate hover:text-highlight transition-colors mr-1"
+                                >
+                                  {project.title}
+                                </Link>
+                                <a 
+                                  href={project.githubUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-slate hover:text-highlight transition-colors"
+                                  aria-label={`Ver ${project.title} no GitHub`}
+                                >
+                                  <Github size={14} />
+                                </a>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                        
+                        {!isLoading && relatedProjects.length === 0 && (
+                          <p className="text-sm text-slate">Nenhum projeto encontrado</p>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
         
         <div className="mt-16">
