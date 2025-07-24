@@ -100,7 +100,7 @@ export const Skills: React.FC = () => {
                       
                       {!isLoading && relatedProjects.length > 0 && (
                         <div className="flex flex-wrap gap-2 mt-2">
-                          {relatedProjects.map(project => (
+                          {relatedProjects.slice(0, 1).map(project => (
                             <div key={project.id} className="flex items-center bg-navy-light px-2 py-1 rounded-md">
                               <Link 
                                 to="/#projects"
