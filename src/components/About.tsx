@@ -16,11 +16,11 @@ export const About: React.FC = () => {
               o poder de construir soluções que resolvem problemas reais.
             </p>
             <p>
-              Trabalho principalmente com tecnologias como <span className="text-highlight">Node.js</span>, <span className="text-highlight">NestJS</span> e <span className="text-highlight">Python</span>, 
-              bancos de dados como <span className="text-highlight">MongoDB</span>, <span className="text-highlight">MySQL</span> e <span className="text-highlight">PostgreSQL</span>.
-              Tenho experiência com <span className="text-highlight">APIs RESTful</span> e <span className="text-highlight">GraphQL</span>, além de
-              implementação de soluções em ambientes de nuvem como <span className="text-highlight">AWS</span>.
-              Também tenho conhecimento em conexão com APIs como GeminiAI, para adicionar IA na aplicação.
+              Tenho experiência em todas as tecnologias mencionadas, mas trabalho atualmente com 
+              <span className="text-highlight">MongoDB</span>, <span className="text-highlight">NestJS</span>, <span className="text-highlight">Node.js</span>, 
+              <span className="text-highlight">TypeScript</span> e <span className="text-highlight">GraphQL</span>.
+              Também tenho conhecimento em implementação de soluções em ambientes de nuvem como <span className="text-highlight">AWS</span>
+              e conexão com APIs como GeminiAI, para adicionar IA na aplicação.
             </p>
             <p>
               Meu foco é sempre criar código limpo, bem documentado e de alta qualidade. 
