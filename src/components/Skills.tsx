@@ -15,22 +15,13 @@ interface Skill {
 const GITHUB_USERNAME = "rita-moura";
 
 const skills: Skill[] = [
-  { name: "Java", category: "Linguagens" },
-  { name: "Python", category: "Linguagens" },
-  { name: "Node.js", category: "Linguagens" },
-  { name: "Golang", category: "Linguagens" },
-  { name: "PostgreSQL", category: "Banco de Dados" },
-  { name: "MongoDB", category: "Banco de Dados" },
-  { name: "Redis", category: "Banco de Dados" },
-  { name: "Docker", category: "DevOps" },
-  { name: "Kubernetes", category: "DevOps" },
-  { name: "CI/CD", category: "DevOps" },
-  { name: "REST APIs", category: "Arquitetura" },
-  { name: "GraphQL", category: "Arquitetura" },
-  { name: "Microsserviços", category: "Arquitetura" },
-  { name: "AWS", category: "Cloud" },
-  { name: "Google Cloud", category: "Cloud" },
-  { name: "Azure", category: "Cloud" },
+  { name: "Docker", category: "Outras ferramentas e tecnologias" },
+  { name: "Git", category: "Outras ferramentas e tecnologias" },
+  { name: "GitHub", category: "Outras ferramentas e tecnologias" },
+  { name: "CI/CD", category: "Outras ferramentas e tecnologias" },
+  { name: "GraphQL", category: "Outras ferramentas e tecnologias" },
+  { name: "Microsserviços", category: "Outras ferramentas e tecnologias" },
+  { name: "AWS", category: "Outras ferramentas e tecnologias" },
 ];
 
 // Agrupar habilidades por categoria

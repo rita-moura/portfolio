@@ -12,7 +12,7 @@ export const useGitHubProjects = (repos: GitHubRepo[] | undefined, username: str
         id: repo.id,
         title: repo.name.replace(/-/g, ' ').replace(/_/g, ' '),
         description: repo.description || "Repositório sem descrição",
-        technologies: repo.topics.length > 0 ? repo.topics : [repo.language].filter(Boolean) as string[],
+        technologies: [repo.language].filter(Boolean) as string[],
         githubUrl: repo.html_url,
         demoUrl: repo.homepage,
         featured: false, // Não usamos mais esse campo, mas mantemos para compatibilidade

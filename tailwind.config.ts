@@ -54,26 +54,17 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
-				},
-                navy: {
-                    light: '#112240',
-                    DEFAULT: '#0A192F',
-                    dark: '#020C1B'
-                },
-                slate: {
-                    light: '#A8B2D1',
-                    DEFAULT: '#8892B0',
-                    dark: '#495670'  
-                },
-                highlight: '#64FFDA'
+						DEFAULT: 'hsl(var(--sidebar-background))',
+						foreground: 'hsl(var(--sidebar-foreground))',
+						primary: 'hsl(var(--sidebar-primary))',
+						'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
+						'active': 'hsl(var(--sidebar-active))',
+						'active-foreground': 'hsl(var(--sidebar-active-foreground))',
+						accent: 'hsl(var(--sidebar-accent))',
+						'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
+						border: 'hsl(var(--sidebar-border))',
+						ring: 'hsl(var(--sidebar-ring))'
+					}
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -94,20 +85,20 @@ export default {
 						height: 'var(--radix-accordion-content-height)'
 					},
 					to: {
-						height: '0'
+							height: '0'
+						}
 					}
+				},
+				animation: {
+					'accordion-down': 'accordion-down 0.2s ease-out',
+					'accordion-up': 'accordion-up 0.2s ease-out'
+				},
+				fontFamily: {
+					sans: ['Roboto', 'sans-serif'],
+					heading: ['Poppins', 'sans-serif'],
+					mono: ['JetBrains Mono', 'monospace']
 				}
-			},
-			animation: {
-				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
-			},
-            fontFamily: {
-                sans: ['Roboto', 'sans-serif'],
-                heading: ['Poppins', 'sans-serif'],
-                mono: ['JetBrains Mono', 'monospace']
-            }
-		}
-	},
+			}
+		},
 	plugins: [require("tailwindcss-animate")],
 } satisfies Config;

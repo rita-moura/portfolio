@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { ModeToggle } from "./theme-toggle";
 
 interface NavItem {
   name: string;
@@ -59,6 +60,10 @@ export const Header: React.FC = () => {
           </nav>
         )}
 
+        <div className="hidden md:block">
+          <ModeToggle />
+        </div>
+
         {/* Mobile Menu Button */}
         {isMobile && (
           <button 
@@ -99,6 +104,9 @@ export const Header: React.FC = () => {
                   Currículo
                 </Button>
               </a>
+              <div className="mt-4">
+                <ModeToggle />
+              </div>
             </div>
           </nav>
         )}
