@@ -12,14 +12,14 @@ export const About: React.FC = () => {
           <div className="md:col-span-2 space-y-4 text-slate">
             <p>
               Olá! Sou uma desenvolvedora backend apaixonada por criar sistemas eficientes
-              e escaláveis. Minha jornada na programação começou há alguns anos, quando descobri
-              o poder de construir soluções que resolvem problemas reais.
+              e escaláveis. Minha jornada na programação começou há alguns anos, quando iniciei meu curso de Desenvolvimento FullStack na Trybe e descobri
+              o poder de construir soluções que resolvem problemas reais e melhoram a vida das pessoas.
             </p>
             <p>
-              Tenho experiência em todas as tecnologias mencionadas, mas trabalho atualmente com 
-              <span className="text-highlight">MongoDB</span>, <span className="text-highlight">NestJS</span>, <span className="text-highlight">Node.js</span>, 
-              <span className="text-highlight">TypeScript</span> e <span className="text-highlight">GraphQL</span>.
-              Também tenho conhecimento em implementação de soluções em ambientes de nuvem como <span className="text-highlight">AWS</span>
+              Tenho experiência em algumas tecnologias, mas trabalho atualmente com  
+              <span className="text-highlight">MongoDB</span>,  <span className="text-highlight">NestJS</span>,  <span className="text-highlight">Node.js</span>,  
+              <span className="text-highlight">TypeScript</span>, <span className="text-highlight">GraphQL</span> e <span className="text-highlight">Angular</span>. 
+              Também tenho conhecimento em implementação de soluções em ambientes de nuvem como <span className="text-highlight">AWS</span> 
               e conexão com APIs como GeminiAI, para adicionar IA na aplicação.
             </p>
             <p>

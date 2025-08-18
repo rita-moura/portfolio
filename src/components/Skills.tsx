@@ -15,13 +15,13 @@ interface Skill {
 const GITHUB_USERNAME = "rita-moura";
 
 const skills: Skill[] = [
-  { name: "Docker", category: "Outras ferramentas e tecnologias" },
-  { name: "Git", category: "Outras ferramentas e tecnologias" },
-  { name: "GitHub", category: "Outras ferramentas e tecnologias" },
-  { name: "CI/CD", category: "Outras ferramentas e tecnologias" },
-  { name: "GraphQL", category: "Outras ferramentas e tecnologias" },
-  { name: "Microsserviços", category: "Outras ferramentas e tecnologias" },
-  { name: "AWS", category: "Outras ferramentas e tecnologias" },
+  { name: "Docker", category: "Tecnologias" },
+  { name: "Git", category: "Tecnologias" },
+  { name: "GitHub", category: "Tecnologias" },
+  { name: "CI/CD", category: "Tecnologias" },
+  { name: "GraphQL", category: "Tecnologias" },
+  { name: "Microsserviços", category: "Tecnologias" },
+  { name: "AWS", category: "Tecnologias" },
 ];
 
 // Agrupar habilidades por categoria
@@ -140,9 +140,6 @@ export const Skills: React.FC = () => {
         </div>
         
         <div className="mt-16">
-          <h3 className="text-slate-light font-heading font-medium text-xl mb-6">
-            Outras ferramentas e tecnologias
-          </h3>
           <ul className="flex flex-wrap gap-3">
             {["Git", "Spring Boot", "FastAPI", "Express.js", "Kafka", "RabbitMQ", "Elasticsearch", 
               "Prometheus", "Grafana", "Terraform", "Jenkins", "GitHub Actions", "Swagger", "JWT", "OAuth"].map((tech) => (

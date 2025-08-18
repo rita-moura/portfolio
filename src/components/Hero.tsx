@@ -21,7 +21,7 @@ export const Hero: React.FC = () => {
           {displayName}.
         </h1>
         <h2 className="text-3xl md:text-5xl font-bold text-slate mb-6">
-          Desenvolvo soluções backend robustas.
+          Desenvolvo soluções robustas para o seu projeto.
         </h2>
         <p className="text-slate max-w-xl text-lg mb-10">
           {gitHubUser?.bio || 
