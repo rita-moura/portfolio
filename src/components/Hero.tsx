@@ -14,7 +14,7 @@ export const Hero: React.FC = () => {
   const displayName = gitHubUser?.name || "Rita Moura";
   
   return (
-    <section className="min-h-screen flex flex-col justify-center pt-16">
+    <section id="home" className="min-h-screen flex flex-col justify-center pt-16">
       <div className="container max-w-4xl">
         <div className="font-mono text-highlight mb-5">Olá, meu nome é</div>
         <h1 className="text-4xl md:text-6xl font-bold text-slate-light mb-4">
