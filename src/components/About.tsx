@@ -34,16 +34,16 @@ export const About: React.FC = () => {
             </p>
           </div>
           
-          <div className="relative group">
+          {/* <div className="relative group">
             <div className="relative rounded-md overflow-hidden border-2 border-highlight z-10">
               <img
                 src="src/images/desenvolvedora-backend.jpg"
-                alt="Rita Moura backend developer"
+                alt="backend developer"
                 className="w-full h-full rounded-md transition-transform duration-300 group-hover:scale-105"
               />
             </div>
             <div className="absolute inset-0 border-2 border-highlight rounded-md translate-x-4 translate-y-4 -z-10"></div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

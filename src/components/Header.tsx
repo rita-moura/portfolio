@@ -51,6 +51,9 @@ const Header = () => {
           <a href="#skills" className="text-white">
             Tecnologias
           </a>
+          <a href="#experience" className="text-white">
+            Experiências
+          </a>
           <a href="#projects" className="text-white">
             Projetos
           </a>

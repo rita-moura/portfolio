@@ -5,6 +5,12 @@ import useGitHubProjects from "@/hooks/useGitHubProjects";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import { Github } from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 interface Skill {
   name: string;
@@ -15,13 +21,38 @@ interface Skill {
 const GITHUB_USERNAME = "rita-moura";
 
 const skills: Skill[] = [
-  { name: "Docker", category: "Tecnologias" },
-  { name: "Git", category: "Tecnologias" },
-  { name: "GitHub", category: "Tecnologias" },
-  { name: "CI/CD", category: "Tecnologias" },
-  { name: "GraphQL", category: "Tecnologias" },
-  { name: "Microsserviços", category: "Tecnologias" },
-  { name: "AWS", category: "Tecnologias" },
+  { name: "Node.js", category: "Backend" },
+  { name: "GraphQL", category: "Backend" },
+  { name: "Microsserviços", category: "Backend" },
+  { name: "Java", category: "Backend" },
+  { name: "Spring Boot", category: "Backend" },
+  { name: "Python", category: "Backend" },
+  { name: "Golang", category: "Backend" },
+  { name: "PHP", category: "Backend" },
+  { name: "Swagger", category: "Backend" },
+  { name: "JWT", category: "Backend" },
+  { name: "OAuth", category: "Backend" },
+  { name: "TypeScript", category: "Backend" },
+  { name: "Docker", category: "DevOps" },
+  { name: "Git", category: "DevOps" },
+  { name: "GitHub", category: "DevOps" },
+  { name: "CI/CD", category: "DevOps" },
+  { name: "AWS", category: "DevOps" },
+  { name: "Terraform", category: "DevOps" },
+  { name: "Jenkins", category: "DevOps" },
+  { name: "GitHub Actions", category: "DevOps" },
+  { name: "Prometheus", category: "DevOps" },
+  { name: "Grafana", category: "DevOps" },
+  { name: "React", category: "Frontend" },
+  { name: "Angular", category: "Frontend" },
+  { name: "TypeScript", category: "Frontend" },
+  { name: "JavaScript", category: "Frontend" },
+  { name: "HTML", category: "Frontend" },
+  { name: "CSS", category: "Frontend" },
+  { name: "SQL", category: "Databases" },
+  { name: "MySQL", category: "Databases" },
+  { name: "PostgreSQL", category: "Databases" },
+  { name: "MongoDB", category: "Databases" },
 ];
 
 // Agrupar habilidades por categoria
@@ -70,84 +101,23 @@ export const Skills: React.FC = () => {
           <span className="text-highlight font-mono text-lg mr-2">Tecnologias</span>
         </h2>
         
-        <div className="grid md:grid-cols-2 gap-10">
-          {Object.entries(categorizedSkills).map(([category, categorySkills]) => {
-            // Filtrar apenas habilidades que têm projetos relacionados
-            const skillsWithProjects = !isLoading ? categorySkills.filter(skill => 
-              findProjectsByTechnology(skill.name).length > 0
-            ) : categorySkills;
-            
-            // Só mostrar a categoria se tiver pelo menos uma habilidade com projetos
-            if (!isLoading && skillsWithProjects.length === 0) {
-              return null;
-            }
-            
-            return (
-              <div key={category} className="space-y-6">
-                <h3 className="text-slate-light font-heading font-medium text-xl mb-4">
-                  {category}
-                </h3>
-                <div className="space-y-4">
-                  {skillsWithProjects.map((skill) => {
-                    const relatedProjects = !isLoading ? findProjectsByTechnology(skill.name) : [];
-                    
-                    return (
-                      <div key={skill.name} className="space-y-2 bg-navy p-4 rounded-lg">
-                        <div className="flex justify-between items-start">
-                          <span className="text-slate-light font-medium">{skill.name}</span>
-                          <Badge variant="outline" className="text-highlight border-highlight">
-                            {isLoading ? '...' : `${relatedProjects.length} ${relatedProjects.length === 1 ? 'projeto' : 'projetos'}`}
-                          </Badge>
-                        </div>
-                        
-                        {!isLoading && relatedProjects.length > 0 && (
-                          <div className="flex flex-wrap gap-2 mt-2">
-                            {relatedProjects.slice(0, 1).map(project => (
-                              <div key={project.id} className="flex items-center bg-navy-light px-2 py-1 rounded-md">
-                                <Link 
-                                  to="/#projects"
-                                  onClick={(e) => {
-                                    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
-                                  }}
-                                  className="text-sm text-slate hover:text-highlight transition-colors mr-1"
-                                >
-                                  {project.title}
-                                </Link>
-                                <a 
-                                  href={project.githubUrl}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="text-slate hover:text-highlight transition-colors"
-                                  aria-label={`Ver ${project.title} no GitHub`}
-                                >
-                                  <Github size={14} />
-                                </a>
-                              </div>
-                            ))}
-                          </div>
-                        )}
-                        
-                        {!isLoading && relatedProjects.length === 0 && (
-                          <p className="text-sm text-slate">Nenhum projeto encontrado</p>
-                        )}
-                      </div>
-                    );
-                  })}
+        <div className="grid md:grid-cols-2 gap-8">
+          {Object.entries(categorizedSkills).map(([category, skills]) => (
+            <Card key={category} className="bg-navy border-slate-700">
+              <CardHeader>
+                <CardTitle className="text-slate-light font-heading text-xl">{category}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-wrap gap-2">
+                  {skills.map((skill) => (
+                    <Badge key={skill.name} variant="secondary" className="text-slate-light bg-navy-light">
+                      {skill.name}
+                    </Badge>
+                  ))}
                 </div>
-              </div>
-            );
-          })}
-        </div>
-        
-        <div className="mt-16">
-          <ul className="flex flex-wrap gap-3">
-            {["Git", "Spring Boot", "FastAPI", "Express.js", "Kafka", "RabbitMQ", "Elasticsearch", 
-              "Prometheus", "Grafana", "Terraform", "Jenkins", "GitHub Actions", "Swagger", "JWT", "OAuth"].map((tech) => (
-              <li key={tech} className="px-4 py-2 bg-navy rounded-full text-slate-light">
-                {tech}
-              </li>
-            ))}
-          </ul>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </div>
     </section>
