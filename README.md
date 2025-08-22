@@ -1,42 +1,59 @@
-# Portfolio Pessoal
+# Portfólio Pessoal - Rita Moura
+
+![Deploy to GitHub Pages](https://github.com/rita-moura/portfolio/actions/workflows/deploy.yml/badge.svg)
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 Este é o meu portfólio pessoal, desenvolvido para apresentar minhas habilidades, projetos e experiência como desenvolvedora. O projeto foi construído com tecnologias modernas, focando em uma interface limpa, responsiva e de alta performance.
+
+**[Acesse a versão ao vivo aqui!](https://rita-moura.github.io/portfolio/)**
 
 ## ✨ Visão Geral
 
 O objetivo deste projeto é criar um espaço centralizado para exibir meu trabalho e compartilhar um pouco sobre minha jornada profissional. O site inclui seções como:
 
--   **Sobre mim:** Uma breve introdução sobre minhas paixões e competências.
--   **Projetos:** Uma seleção dos meus melhores projetos, com descrições, tecnologias utilizadas e links para o código-fonte e/ou demonstração.
--   **Habilidades:** Uma lista das tecnologias e ferramentas com as quais tenho experiência.
--   **Contato:** Informações para que recrutadores e outros profissionais possam entrar em contato.
+-   **Sobre Mim:** Uma breve introdução sobre minhas paixões e competências.
+-   **Projetos:** Uma seleção dos meus melhores projetos, com descrições, tecnologias utilizadas e links para o código-fonte.
+-   **Habilidades:** Uma lista das tecnologias e ferramentas com as quais tenho experiência, conectada dinamicamente aos projetos.
+-   **Contato:** Um formulário simples para facilitar o contato via WhatsApp.
 
 ## 🚀 Tecnologias Utilizadas
 
 Este projeto foi desenvolvido com as seguintes tecnologias:
 
--   **React:** Biblioteca para a construção da interface de usuário.
--   **Vite:** Ferramenta de build para um desenvolvimento rápido e otimizado.
--   **TypeScript:** Superset do JavaScript que adiciona tipagem estática.
--   **Tailwind CSS:** Framework CSS para estilização rápida e customizável.
--   **Shadcn/UI:** Coleção de componentes de UI reutilizáveis.
--   **React Router:** Para o gerenciamento de rotas da aplicação.
--   **React Query:** Para o gerenciamento de estado assíncrono e fetching de dados.
+-   **Frontend:**
+    -   **React:** Biblioteca para a construção da interface de usuário.
+    -   **Vite:** Ferramenta de build para um desenvolvimento rápido e otimizado.
+    -   **TypeScript:** Superset do JavaScript que adiciona tipagem estática.
+    -   **Tailwind CSS:** Framework CSS para estilização rápida e customizável.
+    -   **Shadcn/UI:** Coleção de componentes de UI reutilizáveis.
+-   **Roteamento e Gerenciamento de Estado:**
+    -   **React Router:** Para o gerenciamento de rotas da aplicação.
+    -   **React Query:** Para o gerenciamento de estado assíncrono e fetching de dados da API do GitHub.
+-   **Deployment:**
+    -   **GitHub Pages:** Hospedagem do projeto.
+    -   **GitHub Actions:** Para automação de CI/CD (deploy contínuo).
 
-## ⚙️ Como Executar o Projeto
+## ⚙️ Desenvolvimento Local
 
 Para executar o projeto localmente, siga os passos abaixo:
+
+### Pré-requisitos
+
+-   [Node.js](https://nodejs.org/en/) (versão 18 ou superior)
+-   [npm](https://www.npmjs.com/) (geralmente vem com o Node.js)
+
+### Instalação e Execução
 
 1.  **Clone o repositório:**
 
     ```bash
-    git clone https://github.com/seu-usuario/seu-repositorio.git
+    git clone git@github.com:rita-moura/portfolio.git
+    cd portfolio
     ```
 
 2.  **Instale as dependências:**
 
     ```bash
-    cd seu-repositorio
     npm install
     ```
 
@@ -46,13 +63,13 @@ Para executar o projeto localmente, siga os passos abaixo:
     npm run dev
     ```
 
-    O site estará disponível em `http://localhost:5173`.
+O site estará disponível em `http://localhost:5173`.
 
-## scripts Disponíveis
+### Scripts Disponíveis
 
--   `npm run dev`: Inicia o servidor de desenvolvimento.
--   `npm run build`: Compila o projeto para produção.
--   `npm run lint`: Executa o linter para verificar a qualidade do código.
+-   `npm run dev`: Inicia o servidor de desenvolvimento com Hot-Reload.
+-   `npm run build`: Compila e otimiza o projeto para produção.
+-   `npm run lint`: Executa o ESLint para analisar o código e encontrar problemas.
 -   `npm run preview`: Inicia um servidor local para visualizar a build de produção.
 
 ## 📄 Licença

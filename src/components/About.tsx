@@ -16,10 +16,10 @@ export const About: React.FC = () => {
               o poder de construir soluções que resolvem problemas reais e melhoram a vida das pessoas.
             </p>
             <p>
-              Tenho experiência em algumas tecnologias, mas trabalho atualmente com  
-              <span className="text-highlight">MongoDB</span>,  <span className="text-highlight">NestJS</span>,  <span className="text-highlight">Node.js</span>,  
-              <span className="text-highlight">TypeScript</span>, <span className="text-highlight">GraphQL</span> e <span className="text-highlight">Angular</span>. 
-              Também tenho conhecimento em implementação de soluções em ambientes de nuvem como <span className="text-highlight">AWS</span> 
+              Tenho experiência em algumas tecnologias, mas trabalho atualmente com
+              <span className="text-highlight">MongoDB</span>, <span className="text-highlight">NestJS</span>, <span className="text-highlight">Node.js</span>,
+              <span className="text-highlight">TypeScript</span>, <span className="text-highlight">GraphQL</span> e <span className="text-highlight">Angular</span>.
+              Também tenho conhecimento em implementação de soluções em ambientes de nuvem como <span className="text-highlight">AWS</span>
               e conexão com APIs como GeminiAI, para adicionar IA na aplicação.
             </p>
             <p>
