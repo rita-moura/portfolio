@@ -100,3 +100,14 @@ body.dark-mode #projetos{--ink-2:#d4ded2;--muted:#bccabd;color:#edf0e5}body.dark
 
 /* Acessibilidade: foco visível consistente para teclado e leitores de tela. */
 .nav-tools button:focus-visible{outline:2px solid var(--accent);outline-offset:4px}.contact-icons a:focus-visible{outline:2px solid var(--accent);outline-offset:4px}.portrait-reveal img{max-width:100%}
+
+/* Leitura em telas grandes: mais área útil e tipografia confortável. */
+@media(min-width:1100px){.wrap{width:min(1480px,100%);padding-inline:clamp(40px,4vw,72px)}body{font-size:17px}nav ul{gap:30px}nav ul a{font-size:13px}.eyebrow{font-size:12px}.hero-layout{gap:clamp(70px,7vw,120px)}.hero-intro{font-size:24px}.role{font-size:16px}.lead{font-size:15px}.note-caption{font-size:13px}.note-top,.note-bottom{font-size:10px}.metric .t{font-size:13px}.job ul{font-size:15px}.meta{font-size:13px}.card p{font-size:14px}.card .tag{font-size:10px}.panel h3{font-size:18px}.note{font-size:13px}.list li{font-size:15px}.what>span{font-size:13px}.story p{font-size:16px}.contact-section p{font-size:15px}}
+@media(min-width:1600px){.wrap{width:min(1600px,100%)}h1{font-size:clamp(120px,10vw,174px)}}
+
+@media(min-width:900px){nav.top .wrap{min-height:98px}nav ul{gap:34px}nav ul a{font-size:15px;line-height:1.2}.brand .brand-name{font-size:27px}.brand-caption{font-size:9px;letter-spacing:.17em}.brand-logo{width:60px;height:60px}.nav-tools button{font-size:12px}.lang-toggle span{font-size:12px}.theme-icon{width:24px;height:24px}}
+
+/* Tamanho mínimo de leitura: nenhum texto informativo fica abaixo de 12px. */
+.eyebrow,.note-top,.note-bottom,.brand-caption,.tag,.vis,.stat,.when,.pill,.meta,.sub,.art-caption,.nav-tools button{font-size:12px!important}.note,.what>span{font-size:13px!important}.card p,.job ul,.story p,.contact-section p{font-size:15px}
+@media(max-width:420px){.hero-copy>.eyebrow{font-size:12px!important}.brand-caption{font-size:12px!important}.tag,.vis,.stat,.when,.pill,.meta,.sub{font-size:12px!important}}
+.metric .t,.hbar .lbl,.hbar .val,.vbar .v,.vlabels,.sub span,.what>span,.social-links a{font-size:12px!important;line-height:1.5}
