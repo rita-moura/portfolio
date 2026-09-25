@@ -10,9 +10,9 @@ if (window.location.hash && window.location.hash !== '#inicio') {
   var root=document.body, theme=document.getElementById('theme-toggle'), lang=document.getElementById('lang-toggle');
   if(!theme || !lang) return;
   var saved=localStorage.getItem('portfolio-theme');
-  if(saved==='dark'){ root.classList.add('dark-mode'); theme.querySelector('span').innerHTML='<svg class="theme-icon moon-icon" viewBox="0 0 24 24"><path d="M20 15.5A8.5 8.5 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5Z"/></svg>'; theme.setAttribute('aria-label','Ativar modo claro'); }
+  if(saved==='dark'){ root.classList.add('dark-mode'); theme.querySelector('span').innerHTML='<svg class="theme-icon moon-icon" viewBox="0 0 24 24"><path d="M20 15.5A8.5 8.5 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5Z"/></svg>'; theme.setAttribute('aria-label','Ativar modo claro'); theme.setAttribute('aria-pressed','true'); }
   lang.querySelector('[data-lang=pt]').classList.add('active');
-  function updateTheme(){var dark=root.classList.toggle('dark-mode'); localStorage.setItem('portfolio-theme',dark?'dark':'light'); theme.querySelector('span').innerHTML=dark?'<svg class="theme-icon moon-icon" viewBox="0 0 24 24"><path d="M20 15.5A8.5 8.5 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5Z"/></svg>':'<svg class="theme-icon sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M4.9 4.9 7 7M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1 7 17M17 7l2.1-2.1"/></svg>'; theme.setAttribute('aria-label',dark?'Ativar modo claro':'Ativar modo escuro');}
+  function updateTheme(){var dark=root.classList.toggle('dark-mode'); localStorage.setItem('portfolio-theme',dark?'dark':'light'); theme.querySelector('span').innerHTML=dark?'<svg class="theme-icon moon-icon" viewBox="0 0 24 24"><path d="M20 15.5A8.5 8.5 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5Z"/></svg>':'<svg class="theme-icon sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M4.9 4.9 7 7M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1 7 17M17 7l2.1-2.1"/></svg>'; theme.setAttribute('aria-label',dark?'Ativar modo claro':'Ativar modo escuro'); theme.setAttribute('aria-pressed',dark?'true':'false');}
   theme.addEventListener('click',updateTheme);
   var ptEn = {
     'Experiência':'Experience','Projetos':'Projects','Stack':'Stack','Formação':'Education','Contato':'Contact',

@@ -97,3 +97,6 @@ body.dark-mode #projetos{--ink-2:#d4ded2;--muted:#bccabd;color:#edf0e5}body.dark
 .what b .pill{margin-left:8px;vertical-align:middle;white-space:nowrap}
 
 .theme-icon{width:21px;height:21px;display:block;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}.theme-toggle span{width:24px;height:24px}
+
+/* Acessibilidade: foco visível consistente para teclado e leitores de tela. */
+.nav-tools button:focus-visible{outline:2px solid var(--accent);outline-offset:4px}.contact-icons a:focus-visible{outline:2px solid var(--accent);outline-offset:4px}.portrait-reveal img{max-width:100%}
