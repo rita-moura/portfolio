@@ -68,3 +68,32 @@ body.dark-mode{--bg:#202b27;--surface:#2a3932;--ink:#edf0e5;--ink-2:#c9d3c5;--mu
 .theme-toggle,.theme-toggle:hover,.theme-toggle:focus,.theme-toggle:active{appearance:none!important;border:0!important;outline-offset:0;background:transparent!important;box-shadow:none!important;text-shadow:none!important;filter:none!important}.theme-toggle span{background:transparent!important;box-shadow:none!important;text-shadow:none!important}
 
 .portrait-reveal{position:relative;overflow:hidden;border-radius:8px;background:#e5e7dc}.portrait-reveal::after{content:'';position:absolute;inset:0;background:linear-gradient(115deg,transparent 0 44%,rgba(174,113,106,.72) 45% 45.5%,transparent 46%);transform:translateX(-110%);animation:portrait-thread 2.8s .4s cubic-bezier(.5,.05,.25,1) forwards;pointer-events:none}.portrait-reveal img{display:block;width:100%;height:auto;mix-blend-mode:multiply;opacity:0;clip-path:inset(100% 0 0 0);animation:portrait-draw 2.6s .15s cubic-bezier(.55,.1,.3,1) forwards}@keyframes portrait-draw{0%{opacity:0;clip-path:inset(100% 0 0 0);filter:grayscale(1) contrast(.7)}55%{opacity:1;clip-path:inset(35% 0 0 0);filter:grayscale(.45) contrast(.9)}100%{opacity:1;clip-path:inset(0);filter:none}}@keyframes portrait-thread{to{transform:translateX(110%)}}@media(prefers-reduced-motion:reduce){.portrait-reveal img{animation:none;opacity:1;clip-path:none}.portrait-reveal::after{animation:none;display:none}}
+
+.nav-tools{align-items:center;justify-content:center}.theme-toggle{width:32px!important;height:34px!important}.theme-toggle span{font-size:22px!important;line-height:1;display:grid!important;place-items:center}.lang-toggle{flex:none;vertical-align:middle}
+nav ul{align-items:center}
+.nav-tools{gap:22px}
+
+/* Acabamento pastel sem alterar o retrato: a identidade fica preservada. */
+.portrait-reveal img{filter:saturate(.72) brightness(1.08) contrast(.9)!important}
+.portrait-reveal::before{content:'🖌';position:absolute;z-index:2;top:8%;left:-12%;font-size:25px;transform:rotate(-28deg);opacity:0;animation:brush-paint 2.8s .1s cubic-bezier(.5,.05,.25,1) forwards;pointer-events:none}
+@keyframes brush-paint{0%{left:-12%;top:8%;opacity:0}12%{opacity:1}50%{left:48%;top:47%;opacity:1}88%{left:105%;top:84%;opacity:1}100%{left:110%;top:88%;opacity:0}}
+@media(prefers-reduced-motion:reduce){.portrait-reveal::before{display:none}}
+
+/* A própria máscara faz a pincelada: borda irregular, sem ícone sobreposto. */
+.portrait-reveal::before{content:none!important}.portrait-reveal::after{inset:-12% -20%;width:140%;height:34%;top:34%;left:-20%;background:repeating-linear-gradient(110deg,transparent 0 10px,rgba(174,113,106,.22) 11px 14px,transparent 15px 24px);transform:rotate(-9deg) translateX(-115%);animation:brush-sweep 2.8s .2s cubic-bezier(.5,.05,.25,1) forwards;z-index:2}
+.portrait-reveal img{clip-path:polygon(0 0,0 0,8% 0,2% 14%,16% 14%,9% 29%,27% 29%,18% 44%,39% 44%,29% 59%,53% 59%,42% 74%,68% 74%,55% 88%,82% 88%,72% 100%,0 100%);animation:paint-reveal 2.8s .1s cubic-bezier(.55,.1,.3,1) forwards!important}
+@keyframes paint-reveal{to{clip-path:inset(0)}}@keyframes brush-sweep{to{transform:rotate(-9deg) translateX(115%)}}
+@media(prefers-reduced-motion:reduce){.portrait-reveal img{clip-path:none!important}.portrait-reveal::after{display:none}}
+.portrait-reveal img{opacity:1!important}
+
+/* O GIF controla a própria sequência de pintura. */
+.portrait-reveal img{clip-path:none!important;animation:none!important;opacity:1!important;filter:none!important;mix-blend-mode:normal!important}.portrait-reveal::after,.portrait-reveal::before{display:none!important}
+
+.portrait-reveal picture{display:block}.portrait-reveal picture img{width:100%;height:auto;display:block}
+.contact-icons a:first-child,.contact-icons a:first-child:hover{background:#f8f5ed!important}
+body.dark-mode .contact-icons a:first-child,body.dark-mode .contact-icons a:first-child:hover{background:#293a31!important}
+body.dark-mode #formacao{background:#202e29;border-top-color:#52675a}body.dark-mode #formacao .edu .panel{background:#2d453a;border:1px solid #52675a;border-top:2px solid #8da98e;border-radius:6px;padding:28px}body.dark-mode #formacao .list li{border-bottom-color:#52675a}body.dark-mode #formacao .sec-head .eyebrow{color:#dfaaa0}body.dark-mode #formacao .pill{background:#a9c6a5;color:#203128}
+body.dark-mode #projetos{--ink-2:#d4ded2;--muted:#bccabd;color:#edf0e5}body.dark-mode #projetos .sec-head p,body.dark-mode #projetos .proj-group>h3{color:#c2d0c0}body.dark-mode #projetos .card{--ink-2:#d4ded2;--muted:#bccabd;color:#edf0e5;background:#2d453a}body.dark-mode #projetos .card p,body.dark-mode #projetos .card .stat{color:#c8d4c8}body.dark-mode #projetos .card .by{color:#e2b5aa}body.dark-mode #projetos .card .tag{color:#d4ded2;border-color:#78917d}body.dark-mode #projetos .card .vis{color:#e5eee2;border-color:#91a994}body.dark-mode #projetos .card h4 a{color:#edf0e5}
+.what b .pill{margin-left:8px;vertical-align:middle;white-space:nowrap}
+
+.theme-icon{width:21px;height:21px;display:block;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}.theme-toggle span{width:24px;height:24px}

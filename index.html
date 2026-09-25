@@ -26,7 +26,7 @@
       <li><a href="#stack">Stack</a></li>
       <li><a href="#formacao">Formação</a></li>
       <li><a href="#contato">Contato</a></li>
-      <li class="nav-tools"><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Ativar modo escuro"><span aria-hidden="true">☼</span></button><button class="lang-toggle" id="lang-toggle" type="button" aria-label="Alternar idioma"><span data-lang="pt">PT</span><span data-lang="en">EN</span></button></li>
+      <li class="nav-tools"><button class="lang-toggle" id="lang-toggle" type="button" aria-label="Alternar idioma"><span data-lang="pt">PT</span><span data-lang="en">EN</span></button><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Ativar modo escuro"><span aria-hidden="true"><svg class="theme-icon sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M4.9 4.9 7 7M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1 7 17M17 7l2.1-2.1"/></svg></span></button></li>
     </ul>
   </div>
 </nav>
@@ -44,7 +44,12 @@
     <aside class="hero-note" aria-label="Sobre meu trabalho">
       <div class="note-top"><span>IDEIA → CÓDIGO → IMPACTO</span><span aria-hidden="true">✳</span></div>
       <div class="atelier-art" aria-hidden="true">
-        <div class="portrait-reveal"><img src="assets/rita-moura-portrait.png" alt="Retrato artístico de Rita Moura em pintura e fio de crochê"></div>
+        <div class="portrait-reveal">
+          <picture>
+            <source srcset="assets/retrato_sendo_pintado_pincel_super_rapido.gif" type="image/gif">
+            <img src="assets/rita-moura-portrait.png" alt="Retrato artístico de Rita Moura sendo pintado com pincel">
+          </picture>
+        </div>
         <span class="art-caption">AUTORRETRATO EM PROCESSO — FIO, TINTA E CÓDIGO</span>
       </div>
       <p class="lead">Construo e mantenho aplicações de ponta a ponta, do banco de dados à interface. Trabalho com foco em performance, automação e confiabilidade: encontrar o gargalo, medir e entregar a correção em produção.</p>
